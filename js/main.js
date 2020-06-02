@@ -20,3 +20,18 @@ buttons.forEach((button, index) => {
 })
 
 cartImg.addEventListener('click', () => cart.className === 'cart-preview-passive' ? cart.className = 'cart-preview-active' : cart.className = 'cart-preview-passive')
+
+const searchInput = document.querySelector('.tm-search-input')
+const albums = document.querySelectorAll('.tm-albums-container .tm-album-col')
+
+
+function search(e) {
+    const searchWord = e.target.value
+    albums.forEach(album => {
+        const albumName = album.querySelector('h2').innerText
+        if (albumName.indexOf(searchWord) < 0) {
+            album.style.display = 'none'
+        }
+    })
+}
+searchInput.addEventListener('keypress', search)

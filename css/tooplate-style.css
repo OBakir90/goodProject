@@ -292,7 +292,7 @@ figure.effect-sadie p {
     transform: translate3d(0, 10px, 0);
 }
 
-figure.effect-sadie:hover h2 {
+figure.effect-sadie h2 {
     opacity: 1;
     -webkit-transform: translate3d(0, -50%, 0) translate3d(0, -10px, 0);
     transform: translate3d(0, -50%, 0) translate3d(0, -10px, 0);
