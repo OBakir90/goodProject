@@ -26,12 +26,14 @@ const albums = document.querySelectorAll('.tm-albums-container .tm-album-col')
 
 
 function search(e) {
-    const searchWord = e.target.value
+    const searchWord = e.target.value.toLowerCase()
     albums.forEach(album => {
-        const albumName = album.querySelector('h2').innerText
+        const albumName = album.querySelector('h2').innerText.toLowerCase()
         if (albumName.indexOf(searchWord) < 0) {
             album.style.display = 'none'
+        } else {
+            album.style.display = 'flex'
         }
     })
 }
-searchInput.addEventListener('keypress', search)
+searchInput.addEventListener('input', search)
