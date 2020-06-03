@@ -73,7 +73,8 @@ a:hover, a:focus, a.active {
     z-index: 99;
     display: block;
     position: absolute;
-    background-color: rgb(233, 120, 120);
+    background-color: #F4EDE8;
+    color: #BE6BC8;
     top: 70px;
     right: 10px;
     width: 300px;
