@@ -91,15 +91,20 @@ function fetchAlbum() {
         })
         .then(data => {
             albums.map((album, index) => {
-                let img = album.querySelector("img")
-                let name = album.querySelector("h2")
-                let singerName = album.querySelector("p")
-                img.src = data.albums.album[index].image[3]["#text"]
+                let figure = album.querySelector(".effect-sadie")
+                let namesDiv = document.createElement("figcaption")
+                let img = document.createElement("img")
+                let name = document.createElement("h2")
+                let singerName = document.createElement("p")
+                namesDiv.appendChild(name)
+                namesDiv.appendChild(singerName)
+                figure.appendChild(img)
+                figure.appendChild(namesDiv)
+                img.setAttribute("src", `${data.albums.album[index].image[3]["#text"]}`)
                 name.innerText = data.albums.album[index].name
                 singerName.innerText = data.albums.album[index].artist.name
             })
         })
-
 }
 
 
