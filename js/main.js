@@ -54,7 +54,7 @@ const emailInput = document.querySelector('.tm-subscribe-input')
 const submitBtn = document.querySelector('.tm-subscribe-btn')
 const login = document.createElement('li')
 
-console.log(navList)
+// console.log(navList)
 
 function loginPage(e) {
     e.preventDefault()
@@ -67,3 +67,40 @@ function loginPage(e) {
 }
 
 submitBtn.addEventListener('click', loginPage)
+
+
+//music api
+
+fetch("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=cher&api_key=814047ce29de55128c8d3f7f22774329&format=json")
+    .then(response => {
+        return response.json()
+    })
+    .then(data => console.log(data.similarartists))
+
+// Application name	goodProject
+// API key	814047ce29de55128c8d3f7f22774329
+// Shared secret	d429059cb35c94e75cb56a9bd60b5f90
+// Registered to	orhanb
+
+
+function fetchAlbum() {
+    let albums = [...document.querySelectorAll(".tm-album-col")]
+    fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=disco&api_key=814047ce29de55128c8d3f7f22774329&format=json")
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            albums.map((album, index) => {
+                let img = album.querySelector("img")
+                let name = album.querySelector("h2")
+                let singerName = album.querySelector("p")
+                img.src = data.albums.album[index].image[3]["#text"]
+                name.innerText = data.albums.album[index].name
+                singerName.innerText = data.albums.album[index].artist.name
+            })
+        })
+
+}
+
+
+window.onload = fetchAlbum;
