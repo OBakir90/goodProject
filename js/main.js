@@ -71,12 +71,6 @@ submitBtn.addEventListener('click', loginPage)
 
 //music api
 
-fetch("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=cher&api_key=814047ce29de55128c8d3f7f22774329&format=json")
-    .then(response => {
-        return response.json()
-    })
-    .then(data => console.log(data.similarartists))
-
 // Application name	goodProject
 // API key	814047ce29de55128c8d3f7f22774329
 // Shared secret	d429059cb35c94e75cb56a9bd60b5f90
